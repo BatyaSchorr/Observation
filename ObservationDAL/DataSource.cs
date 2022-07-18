@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace ObservationDAL
 {
-    class DataSource
+    public class DataSource
     {
-        internal static List<MeansOfObservation> drones = new List<MeansOfObservation>();
-
+        public static List<MeansOfObservation> Observation = new List<MeansOfObservation>(10);
+        //public static void Initialize()
+        //{
+        //    MeansOfObservation m = new MeansOfObservation();
+        //    Observation.Add(new MeansOfObservation());
+        //}
     }
 }

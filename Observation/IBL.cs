@@ -9,12 +9,12 @@ namespace ObservationBL
 {
     public interface IBL
     {
-        public void AddObservation(MeansOfObservation Observation);
+        public void AddObservation(MeansOfObservation observation);
         public void DeleteObservation(int code);
-        public void ShowAllObservation();
-        public void ShowObservationByType(string ch);
-        public void ShowObservationSortedByRange(double range);
-        public void ObservationWithFarthestRangeByMinimalFieldOfView(MeansOfObservation drone);
+        public List<MeansOfObservation> ShowAllObservation();
+        public List<MeansOfObservation> ShowObservationByType(string ch);
+        public List<MeansOfObservation> ShowObservationSortedByRange(double range);
+        public MeansOfObservation ObservationWithFarthestRangeByMinimalFieldOfView(double fieldOfVision);
 
 
 
