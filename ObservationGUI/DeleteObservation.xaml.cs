@@ -16,21 +16,18 @@ using System.Windows.Shapes;
 namespace ObservationGUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DeleteObservation.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DeleteObservation : Page
     {
-        private ObservationBL.IBL bl;
-
-        public MainWindow()
+        public DeleteObservation()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void delete_Click(object sender, RoutedEventArgs e)
         {
-            new AddObservation(bl).ShowDialog();
-           
+
         }
     }
 }

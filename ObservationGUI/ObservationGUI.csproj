@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Observation\ObservationBL.csproj" />
+  </ItemGroup>
+
 </Project>

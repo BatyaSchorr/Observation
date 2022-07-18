@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Adding means of observation" HorizontalAlignment="Left" Height="28" Margin="495,64,0,0" VerticalAlignment="Top" Width="189" Click="Button_Click"/>
+        <Button Content="Deletion of observation means" Name="delete" HorizontalAlignment="Left" Height="37" Margin="495,110,0,0" VerticalAlignment="Top" Width="189"/>
 
     </Grid>
 </Window>

@@ -14,6 +14,14 @@ namespace ObservationDAL
         public types Type { get; set; }
         public double Range { get; set; }
         public double FieldOfVision { get; set; }
-        
+
+        public MeansOfObservation(int code, types type, double range, double fieldOfVision)
+        {
+            this.Code = code;
+            this.Type = type;
+            this.Range = range;
+            this.FieldOfVision = fieldOfVision;
+        }
+
     }
 }

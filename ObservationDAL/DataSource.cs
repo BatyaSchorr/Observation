@@ -9,10 +9,6 @@ namespace ObservationDAL
     public class DataSource
     {
         public static List<MeansOfObservation> Observation = new List<MeansOfObservation>(10);
-        //public static void Initialize()
-        //{
-        //    MeansOfObservation m = new MeansOfObservation();
-        //    Observation.Add(new MeansOfObservation());
-        //}
+       
     }
 }
