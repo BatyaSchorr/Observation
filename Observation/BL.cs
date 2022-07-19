@@ -34,7 +34,7 @@ namespace ObservationBL
             }
             return MeansOfObservationList;
         }
-        public List<MeansOfObservation> ShowObservationSortedByRange(double range)
+        public List<MeansOfObservation> ShowObservationSortedByRange()
         {
             var sortList = from ob in DataSource.Observation
                         orderby ob.Range

@@ -13,7 +13,7 @@ namespace ObservationBL
         public void DeleteObservation(int code);
         public List<MeansOfObservation> ShowAllObservation();
         public List<MeansOfObservation> ShowObservationByType(string ch);
-        public List<MeansOfObservation> ShowObservationSortedByRange(double range);
+        public List<MeansOfObservation> ShowObservationSortedByRange();
         public MeansOfObservation ObservationWithFarthestRangeByMinimalFieldOfView(double fieldOfVision);
 
 

@@ -8,7 +8,38 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Adding means of observation" HorizontalAlignment="Left" Height="28" Margin="495,64,0,0" VerticalAlignment="Top" Width="189" Click="Button_Click"/>
-        <Button Content="Deletion of observation means" Name="delete" HorizontalAlignment="Left" Height="37" Margin="495,110,0,0" VerticalAlignment="Top" Width="189"/>
+        <Button Content="Deletion of observation means" Name="delete" HorizontalAlignment="Left" Height="37" Margin="495,110,0,0" VerticalAlignment="Top" Width="189" Click="delete_Click"/>
+        <Label Visibility="Hidden" Name="labelCode" Content="Enter a code to delete: " HorizontalAlignment="Left" Height="37" Margin="297,110,0,0" VerticalAlignment="Top" Width="138"/>
+        <TextBox Visibility="Hidden" HorizontalAlignment="Left" Height="20" Margin="316,152,0,0" Name="codeToDelete" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84"/>
+        <Button Visibility="Hidden" Content="delete" Name="deleteOk" HorizontalAlignment="Left" Height="19" Margin="201,128,0,0" VerticalAlignment="Top" Width="78" Click="deleteOk_Click"/>
+        <DataGrid IsReadOnly="True" Name="observationMeansListView" HorizontalAlignment="Center" Height="97" Margin="0,177,0,0" VerticalAlignment="Top" Width="573"/>
+        <Label Content="Filter by type" HorizontalAlignment="Left" Height="29" Margin="658,320,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.048"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ComboBox Name="cbFilterByType" HorizontalAlignment="Left" Height="21" Margin="576,324,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.5,0.5">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <Button Content="filter" Name="filterOK" HorizontalAlignment="Left" Height="19" Margin="606,360,0,0" VerticalAlignment="Top" Width="74" Click="filterOK_Click"/>
+        <Button Content="For sorting the means of observation" HorizontalAlignment="Left" Height="36" Margin="325,317,0,0" VerticalAlignment="Top" Width="208" Click="Button_Click_1"/>
+        <Button Content="show Farthest range with minimum field of view" Name="FarthestRangeWithMinimumField" HorizontalAlignment="Left" Height="36" Margin="27,317,0,0" VerticalAlignment="Top" Width="266" Click="FarthestRangeWithMinimumField_Click"/>
+        <Label Content="minimum field of view" Name="lableMin" Visibility="Hidden" HorizontalAlignment="Left" Height="30" Margin="160,370,0,0" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Visibility="Hidden" Name="minimumField" Height="21" Margin="49,370,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"/>
+        <Button Content="show" Visibility="Hidden" Name="showMinimum" HorizontalAlignment="Left" Height="24" Margin="124,400,0,0" VerticalAlignment="Top" Width="72" Click="showMinimum_Click"/>
+        <Button Content="refresh" Name="refresh" HorizontalAlignment="Left" Height="24" Margin="124,138,0,0" VerticalAlignment="Top" Width="77" Click="refresh_Click"/>
 
     </Grid>
 </Window>

@@ -27,6 +27,8 @@ namespace ObservationGUI
         {
             InitializeComponent();
             this.bl = bl;
+            cbType.ItemsSource = Enum.GetValues(typeof(types));
+
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -34,7 +36,7 @@ namespace ObservationGUI
             try
             {
                 bl.AddObservation(new MeansOfObservation( code++,(types) cbType.SelectedItem, Convert.ToDouble(range.Text),Convert.ToDouble(FieldOfVision.Text)));
-                MessageBox.Show("The customer successfully added");
+                MessageBox.Show("The Observation successfully added");
                 
             }
             catch (Exception ex)
