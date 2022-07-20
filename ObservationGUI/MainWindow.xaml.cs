@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ObservationDAL;
+using ObservationBL;
+
 
 namespace ObservationGUI
 {
@@ -26,6 +28,8 @@ namespace ObservationGUI
         public MainWindow()
         {
             InitializeComponent();
+            bl = new BL();
+            DataSource.Initialize();
             observationMeansListView.ItemsSource = bl.ShowAllObservation();
             cbFilterByType.ItemsSource = Enum.GetValues(typeof(types));
 
@@ -33,9 +37,10 @@ namespace ObservationGUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //new AddObservation(bl).ShowDialog();
+            new AddObservation(bl).ShowDialog();
             //observationMeansListView.ItemsSource = bl.ShowAllObservation();
 
+            observationMeansListView.ItemsSource = DataSource.Observation;
 
         }
 
@@ -50,7 +55,8 @@ namespace ObservationGUI
         {
             try
             {
-                bl.DeleteObservation(Convert.ToInt32(codeToDelete.Text));
+                int x = Convert.ToInt32(codeToDelete.Text);
+                bl.DeleteObservation(x);
                 MessageBox.Show("The observation means has been successfully deleted");
             }
             catch(Exception ex)
@@ -60,11 +66,13 @@ namespace ObservationGUI
             deleteOk.Visibility = Visibility.Hidden;
             codeToDelete.Visibility = Visibility.Hidden;
             labelCode.Visibility = Visibility.Hidden;
+            observationMeansListView.ItemsSource = bl.ShowAllObservation();
+
         }
 
         private void filterOK_Click(object sender, RoutedEventArgs e)
         {
-            observationMeansListView.ItemsSource = bl.ShowObservationByType(cbFilterByType.Text);
+            observationMeansListView.ItemsSource = bl.ShowObservationByType((types)cbFilterByType.SelectedItem);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -74,7 +82,9 @@ namespace ObservationGUI
 
         private void showMinimum_Click(object sender, RoutedEventArgs e)
         {
-            observationMeansListView.Items[0] = bl.ObservationWithFarthestRangeByMinimalFieldOfView(Convert.ToDouble(minimumField.Text));
+            List<MeansOfObservation> l = new List<MeansOfObservation>();
+            l.Add(bl.ObservationWithFarthestRangeByMinimalFieldOfView(Convert.ToDouble(minimumField.Text)));
+            observationMeansListView.ItemsSource = l;
             showMinimum.Visibility = Visibility.Hidden;
             minimumField.Visibility = Visibility.Hidden;
             lableMin.Visibility = Visibility.Hidden;

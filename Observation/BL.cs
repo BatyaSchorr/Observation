@@ -7,7 +7,7 @@ using ObservationDAL;
 
 namespace ObservationBL
 {
-    class BL : IBL
+   public class BL : IBL
     {
         public void AddObservation(MeansOfObservation observation)
         {
@@ -16,23 +16,23 @@ namespace ObservationBL
         public void DeleteObservation(int code)
         {
             var ob = DataSource.Observation.Find(x => x.Code == code);
-            if (ob.Equals(default(MeansOfObservation)))
+            if (ob.Equals(null))
                 throw new Exception("this id was not found");
             DataSource.Observation.Remove(ob);
         }
         public List<MeansOfObservation> ShowAllObservation()
         {
-            return DataSource.Observation;
+            return DataSource.Observation.ToList();
         }
-        public List<MeansOfObservation> ShowObservationByType(string ch)
+        public List<MeansOfObservation> ShowObservationByType(types t)
         {
             List<MeansOfObservation> MeansOfObservationList = new List<MeansOfObservation>();
             foreach (MeansOfObservation ob in DataSource.Observation)
             {
-                if (ob.Type.Equals(ch))
+                if (ob.Type.Equals(t))
                     MeansOfObservationList.Add(ob);
             }
-            return MeansOfObservationList;
+            return MeansOfObservationList.ToList();
         }
         public List<MeansOfObservation> ShowObservationSortedByRange()
         {

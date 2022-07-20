@@ -19,7 +19,7 @@ namespace ObservationGUI
     /// <summary>
     /// Interaction logic for AddObservation.xaml
     /// </summary>
-    public partial class AddObservation : Page
+    public partial class AddObservation : Window
     {
         private ObservationBL.IBL bl;
         private static int code = 1;
@@ -33,11 +33,21 @@ namespace ObservationGUI
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
-                bl.AddObservation(new MeansOfObservation( code++,(types) cbType.SelectedItem, Convert.ToDouble(range.Text),Convert.ToDouble(FieldOfVision.Text)));
+                if (cbType.Text == "")
+                {
+                    throw new Exception("No type selected");
+                }
+                if (Convert.ToInt32(FieldOfVision.Text) > 360)
+                {
+                    throw new Exception("Field of view cannot be above 360 degrees");
+                }
+                bl.AddObservation(new MeansOfObservation(code++, (types)cbType.SelectedItem, Convert.ToDouble(range.Text), Convert.ToDouble(FieldOfVision.Text)));
                 MessageBox.Show("The Observation successfully added");
-                
+                this.Close();
+
             }
             catch (Exception ex)
             {
